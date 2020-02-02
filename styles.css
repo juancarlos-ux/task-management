@@ -1,0 +1,357 @@
+body, html {
+    margin: 0;
+    background-color: rgb(44, 91, 160);
+    padding: 12px;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 600px;
+    min-width: 320px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.4);
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.toolbar {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    padding: 8px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e0e0e0;
+    display: inline-block;
+}
+
+.workspace {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    max-height: calc(100% - 64px);
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.add-task {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #3f8cc3;
+    color: white;
+    font-size: 24px;
+    line-height: 0;
+    position: relative;
+    float: left;
+}
+
+.add-task::before {
+    content: "+";
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-task-text {
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    padding: 8px;
+    color: #646464;
+    float: left;
+}
+
+.task-card {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    padding: 16px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(0,0,0,.3);
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 8px;
+    border-left: 8px solid gray;
+    transition: all .2s ease-in-out;
+    opacity: 1;
+}
+
+.task-card.low {
+    border-color: #53ad53;
+}
+
+.task-card.medium {
+    border-color: #f79a26;
+}
+
+.task-card.high {
+    border-color: #ec4a4a;
+}
+
+.task-content {
+    font-size: 15px;
+    color: #3c3c3c;
+    letter-spacing: 0.01em;
+    width: calc(100% - 72px);
+    float: left;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+}
+
+.deadline {
+    font-size: 13px;
+    color: #757575;
+    letter-spacing: 0.01em;
+    width: calc(100% - 72px);
+    float: left;
+    font-weight: 300;
+    padding-bottom: 4px;
+}
+
+.task-options,
+.delete {
+    width: 32px;
+    height: 32px;
+    float: right;
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #646464;
+    border: 1px solid #c8c8c8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: none;
+}
+
+.task-options:hover {
+    cursor: pointer;
+    background-color: #3f8cc3;
+    color: white;
+} 
+
+.delete:hover {
+    cursor: pointer;
+    background-color: #ec4a4a;
+    color: white;
+} 
+
+.task-options.active {
+    background-color: #3f8cc3;
+    color: white;
+    display: block !important;
+} 
+
+.delete {
+    background-image: url(https://fonts.gstatic.com/s/i/materialicons/delete/v4/24px.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 69%;
+}
+
+.task-options {
+    background-image: url(https://fonts.gstatic.com/s/i/materialicons/edit/v4/24px.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 69%;
+    margin-left: 4px;
+}
+
+.task-card:hover .task-options,
+.task-card:hover .delete {
+    display: block;
+}
+
+.task-card:hover .delete {
+    display: block;
+}
+
+input.new-task {
+    height: 32px;
+    width: 100%;
+    /* width: calc(100% - 44px); */
+    /* margin-left: 12px; */
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.2);
+    padding-left: 12px;
+}
+
+.edit-menu {
+    background-color: #f9f9f9;
+    width: 236px;
+    height: auto;
+    display: block;
+    padding: 20px;
+    position: absolute;
+    border-radius: 8px;
+    right: 60px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+}
+
+.input-group {
+    width: auto;
+    height: auto;
+    margin-bottom: 16px;
+}
+
+label {
+    font-size: 13px;
+    color: #646464;
+}
+
+.edit-menu input {
+    margin-top: 4px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.2);
+    padding: 12px;
+    display: block;
+}
+
+.btn-group {
+    width: auto;
+    height: auto;
+    display: block;
+    margin-top: 6px;
+}
+
+.priority {
+    height: 32px;
+    width: 72px;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,.5);
+    border-radius: 4px;
+    color: #646464;
+    padding: 0 8px;
+    font-size: 13px;
+    text-align: left;
+    background-color: white;
+    border-left: 5px solid gray;
+    margin-right: 4px;
+}
+
+button:hover { cursor: pointer; }
+
+.priority#low { border-color: #53ad53; }
+#low.active { background-color: #53ad53; color: white;}
+
+.priority#medium { border-color: #f79a26; }
+#medium.active { background-color: #f79a26; color: white;}
+
+.priority#high { border-color: #ec4a4a; }
+#high.active { background-color: #ec4a4a; color: white;}
+
+
+button.save {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #528ce2;
+    color: white;
+    border: none;
+    margin-top: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.4);
+}
+
+input#datepicker {
+    width: 116px;
+    font-size: 14px;
+}
+
+.title-container {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    position: absolute;
+    font-family: sans-serif;
+}
+
+.project-name {
+    font-size: 28px;
+    color: white;
+}
+
+.author {
+    font-size: 14px;
+    color: white;
+    opacity: .7;
+}
+
+div#ui-datepicker-div {
+    background-color: white;
+    padding: 12px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.4);
+    position: 'absolute';
+    top: 208px !important;
+    left: 20px !important;
+}
+
+.ui-datepicker-calendar td:not(.ui-datepicker-unselectable) {
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 3px;
+    text-align: center;
+}
+
+.ui-datepicker-calendar td:not(.ui-datepicker-unselectable) a.ui-state-default {
+    text-decoration: none;
+    color: #646464;
+}
+
+.ui-datepicker-calendar td.ui-datepicker-current-day {
+    background-color: #3f8cc3;
+}
+
+.ui-datepicker-calendar td.ui-datepicker-current-day a.ui-state-default,
+.ui-datepicker-calendar td.ui-datepicker-current-day a.ui-state-active {
+    color: white;
+}
+
+a.ui-datepicker-prev.ui-corner-all {
+    border: 1px solid rgba(0,0,0,.3);
+    padding: 2px;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+a.ui-datepicker-prev.ui-corner-all {
+    border: 1px solid rgba(0,0,0,.3);
+    padding: 2px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    position: absolute;
+    top: 12px;
+    padding: 2px 4px;
+}
+
+a.ui-datepicker-prev.ui-corner-all:hover,
+a.ui-datepicker-next.ui-corner-all:hover {
+    cursor: pointer;
+}
+
+a.ui-datepicker-next.ui-corner-all {
+    float: right;
+    border: 1px solid rgba(0,0,0,.3);
+    padding: 2px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 2px 4px;
+}
+
+.ui-datepicker-title {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    text-align: center;
+}
